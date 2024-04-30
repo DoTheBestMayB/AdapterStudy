@@ -37,7 +37,7 @@ class ViewPagerFragment : Fragment() {
 
     private fun setViewPager() = with(binding) {
         if (adapter == null) {
-            adapter = ViewPagerAdapter(this@ViewPagerFragment)
+            adapter = ViewPagerAdapter(this@ViewPagerFragment.childFragmentManager, viewLifecycleOwner.lifecycle)
         }
         vp.adapter = adapter
     }

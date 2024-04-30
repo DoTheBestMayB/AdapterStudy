@@ -11,6 +11,13 @@ import com.dothebestmayb.adapter.model.SimpleData
 
 class MyListAdapter : ListAdapter<SimpleData, MyListAdapter.MyViewHolder>(diff){
 
+    val TAG = MyListAdapter::class.java.simpleName
+    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
+        super.onDetachedFromRecyclerView(recyclerView)
+
+        Log.i(TAG, "onDetachedFromRecyclerView is called")
+    }
+
     class MyViewHolder(private val binding: ItemSimpleBinding): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: SimpleData) {
@@ -41,10 +48,5 @@ class MyListAdapter : ListAdapter<SimpleData, MyListAdapter.MyViewHolder>(diff){
         }
     }
 
-    val TAG = MyListAdapter::class.java.simpleName
-    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
-        super.onDetachedFromRecyclerView(recyclerView)
 
-        Log.i(TAG, "onDetachedFromRecyclerView is called")
-    }
 }
