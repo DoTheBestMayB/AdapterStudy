@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dothebestmayb.adapter.R
 import com.dothebestmayb.adapter.adapter.ViewPagerAdapter
 import com.dothebestmayb.adapter.databinding.FragmentViewPagerBinding
 import com.dothebestmayb.adapter.model.TabType
@@ -36,9 +35,13 @@ class ViewPagerFragment : Fragment() {
     }
 
     private fun setViewPager() = with(binding) {
-        if (adapter == null) {
-            adapter = ViewPagerAdapter(this@ViewPagerFragment.childFragmentManager, viewLifecycleOwner.lifecycle)
-        }
+//        if (adapter == null) {
+//            adapter = ViewPagerAdapter(this@ViewPagerFragment.childFragmentManager, viewLifecycleOwner.lifecycle)
+////            adapter = ViewPagerAdapter(this@ViewPagerFragment) // Fragment를 전달하면 memory leak이 발생함
+//        }
+//        adapter = ViewPagerAdapter(this@ViewPagerFragment) // Fragment를 전달하면 memory leak이 발생함
+        adapter = ViewPagerAdapter(this@ViewPagerFragment.childFragmentManager, viewLifecycleOwner.lifecycle)
+
         vp.adapter = adapter
     }
 
@@ -51,7 +54,7 @@ class ViewPagerFragment : Fragment() {
 
     override fun onDestroyView() {
         // 이 코드를 호출하지 않으면 FragmentStateAdapter의 onDetachedFromRecyclerView가 호출되지 않음
-//        binding.vp.adapter = null
+        binding.vp.adapter = null
         _binding = null
         super.onDestroyView()
     }

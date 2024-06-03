@@ -10,7 +10,8 @@ import com.dothebestmayb.adapter.model.TabType
 import com.dothebestmayb.adapter.ui.FirstFragment
 import com.dothebestmayb.adapter.ui.SecondFragment
 
-class ViewPagerAdapter(fm: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fm, lifecycle) {
+class ViewPagerAdapter(m: FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(m, lifecycle) {
+//class ViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun getItemCount() = TabType.entries.size
 
     override fun createFragment(position: Int): Fragment {

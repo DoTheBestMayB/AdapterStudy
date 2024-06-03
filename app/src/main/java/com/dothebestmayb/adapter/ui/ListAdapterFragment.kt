@@ -57,6 +57,7 @@ class ListAdapterFragment : Fragment() {
 
 
     override fun onDestroyView() {
+//        binding.rv.adapter = null
         _binding = null
         super.onDestroyView()
     }
