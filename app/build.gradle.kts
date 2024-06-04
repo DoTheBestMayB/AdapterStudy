@@ -50,7 +50,7 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.6.2")
 
     // viewpager2
-    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
 
     // canary
     debugImplementation("com.squareup.leakcanary:leakcanary-android:2.14")
