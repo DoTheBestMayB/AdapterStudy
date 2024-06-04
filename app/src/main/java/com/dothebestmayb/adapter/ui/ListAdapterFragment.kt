@@ -53,11 +53,18 @@ class ListAdapterFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+        binding.btnStartViewPagerFragment.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_view, ViewPagerFragment())
+                .setReorderingAllowed(true)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
 
     override fun onDestroyView() {
-//        binding.rv.adapter = null
+        binding.rv.adapter = null // 이 코드를 호출하지 않고 단 시간 내에 다른 Fragment로 전환했다가 돌아왔다를 반복하면 Canary에 의해 메모리가 누수되었다고 나온다.
         _binding = null
         super.onDestroyView()
     }

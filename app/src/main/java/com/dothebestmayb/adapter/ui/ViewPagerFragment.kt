@@ -54,7 +54,7 @@ class ViewPagerFragment : Fragment() {
 
     override fun onDestroyView() {
         // 이 코드를 호출하지 않으면 FragmentStateAdapter의 onDetachedFromRecyclerView가 호출되지 않음
-        binding.vp.adapter = null
+//        binding.vp.adapter = null
         _binding = null
         super.onDestroyView()
     }
